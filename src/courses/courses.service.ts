@@ -17,7 +17,7 @@ export class CoursesService {
   }
 
   findOne(id: number): Course {
-    return this.courses.find((course) => course.id === id);
+    return this.courses.find((course) => course.id === Number(id));
   }
 
   create(createCourseDTO: any) {
@@ -25,13 +25,17 @@ export class CoursesService {
   }
 
   update(id: number, updateCourseDTO: any) {
-    const indexCourse = this.courses.findIndex((course) => course.id === id);
+    const indexCourse = this.courses.findIndex(
+      (course) => course.id === Number(id),
+    );
 
     this.courses[indexCourse] = updateCourseDTO;
   }
 
   remove(id: number) {
-    const indexCourse = this.courses.findIndex((course) => course.id === id);
+    const indexCourse = this.courses.findIndex(
+      (course) => course.id === Number(id),
+    );
 
     if (indexCourse >= 0) {
       this.courses.splice(indexCourse, 1);
