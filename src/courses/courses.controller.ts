@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { Get, Param } from '@nestjs/common/decorators';
+import { Get, Param, Post, Body } from '@nestjs/common/decorators';
 
 @Controller('courses')
 export class CoursesController {
@@ -11,5 +11,10 @@ export class CoursesController {
   @Get(':id')
   findOne(@Param('id') id: number): string {
     return `Curso #${id}`;
+  }
+
+  @Post()
+  create(@Body() data: any): any {
+    return data;
   }
 }
