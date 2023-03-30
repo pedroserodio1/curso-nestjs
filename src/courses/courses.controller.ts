@@ -6,6 +6,8 @@ import {
   Body,
   HttpCode,
   Res,
+  Patch,
+  Delete,
 } from '@nestjs/common/decorators';
 
 @Controller('courses')
@@ -22,7 +24,17 @@ export class CoursesController {
 
   @Post()
   @HttpCode(HttpStatus.NO_CONTENT)
-  create(@Body() data: any): any {
-    return data;
+  create(@Body() body: any): any {
+    return body;
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: number, @Body() body): any {
+    return `Atualização do Curso #${id}`;
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: number): any {
+    return `Exclusao do Curso #${id}`;
   }
 }
