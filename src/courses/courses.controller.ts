@@ -9,9 +9,12 @@ import {
   Patch,
   Delete,
 } from '@nestjs/common/decorators';
+import { CoursesService } from './courses.service';
 
 @Controller('courses')
 export class CoursesController {
+  constructor(private readonly coursesServices: CoursesService) {}
+
   @Get()
   findAll(@Res() res): string {
     return res.status(200).send('Listagem de cursos');
