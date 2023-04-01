@@ -8,6 +8,8 @@ import {
   Delete,
 } from '@nestjs/common/decorators';
 import { CoursesService } from './courses.service';
+import { CreateCourseDto } from './dto/create-course.dto/create-course.dto';
+import { UpdateCourseDto } from './dto/update-course.dto/update-course.dto';
 
 @Controller('courses')
 export class CoursesController {
@@ -24,13 +26,13 @@ export class CoursesController {
   }
 
   @Post()
-  create(@Body() body: any) {
-    return this.coursesServices.create(body);
+  create(@Body() createCourseDto: CreateCourseDto) {
+    return this.coursesServices.create(createCourseDto);
   }
 
   @Patch(':id')
-  update(@Param('id') id: number, @Body() body) {
-    return this.coursesServices.update(id, body);
+  update(@Param('id') id: number, @Body() updateCourseDto: UpdateCourseDto) {
+    return this.coursesServices.update(id, updateCourseDto);
   }
 
   @Delete(':id')
