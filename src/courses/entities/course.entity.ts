@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Entity, PrimaryGeneratedColumn, Column, JoinTable, ManyToMany } from 'typeorm';
-import { TagEntity } from './tag.entity/tag.entity';
+import { TagEntity } from './tag.entity';
 
 @Entity('courses')
 export class Course {
