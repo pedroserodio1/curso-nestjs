@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 module.exports = {
   type: 'postgres',
-  host: 'localhost',
-  port: 5432,
+  host: 'db',
+  port: 5400,
   username: 'postgres',
-  password: 'postgres',
-  database: 'course-udemy-typeorm-nest',
+  password: 'docker',
+  database: 'cursonestjs',
   entities: ['dist/**/*.entity.js'],
   migrations: ['dist/migrations/*.js'],
   cli: {
